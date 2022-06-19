@@ -13,13 +13,17 @@
 </head>
 <body style="margin: 15px;">
 
-    <div class="card" style="left: 38%; width: fit-content; top: 10px;">
-        <div class="card-body">
-            <h1 class="text-center"><small class="text-muted">This is </small>skypy-webui</h1>
-            <p class="text-center">skypy-webui is a GUI in the browser for my library skypy</p>
+    <div div class="d-flex p-2 justify-content-center">
+        <div class="card " style="width: fit-content; top: 10px;">
+            <div class="card-body">
+                <h1 class="text-center"><small class="text-muted">This is </small>skypy-webui</h1>
+                <p class="text-center">skypy-webui is a GUI in the browser for my library skypy</p>
+            </div>
         </div>
     </div>
-    <br><br>
+
+
+    <br>
     <div class="alert alert-dismissible alert-danger mb-3">
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <strong>Attention!</strong> <a href="#" class="alert-link">Read this</a> to see why these values may not be 100% accurate.
@@ -29,12 +33,9 @@
         <strong>Did you know this?</strong> I have also a website, <a href="#" class="alert-link">click here</a> to get to it!
     </div>
 
-
-
-    <br><br>
     <div class="row">
 
-        <div class="col">
+        <div class="col d-flex p-2 justify-content-center">
             <div class="card mb-3" style="width:fit-content;">
                 <div class="card-header">
                     <h4>Bazaar prices <small class="text-muted">in coins</small> <span class="badge bg-primary">NEW</span></h4>
@@ -48,7 +49,7 @@
             </div>
         </div>
 
-        <div class="col">
+        <div class="col d-flex p-2 justify-content-center">
             <div class="card mb-3" style="width:fit-content;">
                 <div class="card-header">
                     <h4>Something else <small class="text-muted">in terraflops</small> <span class="badge bg-primary">BETA</span></h4>
@@ -62,7 +63,7 @@
             </div>
         </div>
 
-        <div class="col">
+        <div class="col d-flex p-2 justify-content-center">
             <div class="card mb-3" style="width:fit-content;">
                 <div class="card-header">
                     <h4>Mayor Election <small class="text-muted">in 5k players</small> <span class="badge bg-primary">NEW</span></h4>
@@ -81,8 +82,11 @@
 
 
     <script>
-    const ctx = document.getElementById('bazPrices').getContext('2d');
-    const myChart = new Chart(ctx, {
+
+
+    
+    const bazPrizesEl = document.getElementById('bazPrices').getContext('2d');
+    const bazPrizes = new Chart(bazPrizesEl, {
         type: 'line',
         data: {
             labels: ['F-4', 'F-3', 'F-2', 'F-1', 'Latest Fetch'],
@@ -96,6 +100,65 @@
                 label: 'Enchanted snow block',
                 data: [50, 30, 10, 30, 25],
                 borderColor: [ 'rgba(30, 255, 132, 1)' ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+    const myChartEl = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(myChartEl, {
+        type: 'line',
+        data: {
+            labels: ['Lorem', 'Ipsum', 'dolor', 'sit', 'amet'],
+            datasets: [{
+                label: 'Desoxydation',
+                data: [19, 3, 5, 2, 3],
+                borderColor: [ 'rgba(255, 99, 132, 1)' ],
+                borderWidth: 1
+            },
+            {
+                label: 'Reinoxydation',
+                data: [50, 30, 10, 30, 25],
+                borderColor: [ 'rgba(30, 255, 132, 1)' ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+    const mayorElectionEl = document.getElementById('mayorElection').getContext('2d');
+    const mayorElection = new Chart(mayorElectionEl, {
+        type: 'bar',
+        data: {
+            labels: ["Diaz", "Marina", "Barry", "Diana", "Aatrox", "Cole", "Paul"],
+            datasets: [{
+                label: 'Election result in 5k Players',
+                data: [19, 3, 5, 2, 3, 10, 25],
+                backgroundColor: [ 
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)' 
+                ],
+                borderColor: [ 
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+                ],
                 borderWidth: 1
             }]
         },
